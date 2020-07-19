@@ -75,12 +75,6 @@ class kmeans_:
         self.iteration = itertaion # update iteration
         return result # return result
 
-    def get_iteration(self,): # get itertation for comparing
-        return self.iteration #return iteration
-
-    def get_k(self,): # get k for set color of scattor elements
-        return self.k #retusn self.k
-
     def get_UD(self,data, centroids, clusters): # Get Uclideint distance
         for ins in data:  #for whole data
             mu = min([(i[0], np.linalg.norm(ins-centroids[i[0]])) \
@@ -100,7 +94,7 @@ if __name__ == '__main__': # Start from main
     model1 = kmeans_(k=3, data=data, iteration=iteration) # implemented model init setting
     clustsers = model1.Train() #set clusters
     result = [] #result list for set diff colors
-    for i in range(int(model1.get_k())): # for k case
+    for i in range(int(model1.k)): # for k case
         result = np.array(clustsers[i]) # i control for reslut
         result_x = result[:,0] # Assign x
         result_y = result[:,1] # Assign y
