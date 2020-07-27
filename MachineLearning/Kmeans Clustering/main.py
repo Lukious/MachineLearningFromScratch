@@ -91,7 +91,7 @@ class kmeans_:
 if __name__ == '__main__': # Start from main
     colorlist = ['r','c','k','g','m','b','y'] # Set color list (set this pallet because white and yellow is hard to congize)
     data = pd.read_csv('data.csv') # load data
-    model1 = kmeans_(k=3, data=data, iteration=iteration) # implemented model init setting
+    model1 = kmeans_(k=7, data=data, iteration=iteration) # implemented model init setting
     clustsers = model1.Train() #set clusters
     result = [] #result list for set diff colors
     for i in range(int(model1.k)): # for k case
@@ -104,7 +104,7 @@ if __name__ == '__main__': # Start from main
     plt.title("implementaion") # set title
     plt.show() # show plot
 
-    model2 = KMeans(n_clusters=3, init='random', random_state=seed_num, max_iter=iteration).fit(data) # sklearn model init setting
+    model2 = KMeans(n_clusters=7, init='random', random_state=seed_num, max_iter=iteration).fit(data) # sklearn model init setting
     predict = pd.DataFrame(model2.predict(data)) # update predict label
     predict.columns = ["predict"] # Set col name
     data = pd.concat([data,predict],axis=1) # concat data
